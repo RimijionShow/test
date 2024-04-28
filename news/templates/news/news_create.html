@@ -1,0 +1,83 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Форма создания статьи{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <style>
+            /* Общие стили для формы добавления статьи */
+            .features {
+                background-color: #2c2c3c;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            .features h1 {
+                color: #007bff;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .features form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features form input,
+            .features form textarea {
+                width: 80%;
+                padding: 12px;
+                margin-bottom: 15px;
+                border: 1px solid #ced4da;
+                border-radius: 5px;
+                transition: border-color 0.3s ease;
+            }
+
+            .features form input:focus,
+            .features form textarea:focus {
+                border-color: #007bff;
+                outline: none;
+            }
+
+            .features form button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 12px 20px;
+                cursor: pointer;
+                text-shadow: 2px 2px 10px #007bff;
+                transition: background-color 0.3s ease;
+            }
+
+            .features form button:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+                transition: transform .6s ease;
+                text-shadow: 2px 2px 10px #007bff;
+            }
+
+            .features form .error {
+                color: #dc3545;
+                font-size: 14px;
+            }
+
+        </style>
+        <h1>Форма добавления статьи</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.title }}<br>
+            {{ form.anons }}<br>
+            {{ form.full_text }}<br>
+            {{ form.date }}<br>
+            <spa>{{ error }}</spa>
+            <button class="btn btn-primary" type="submit">Создать</button>
+        </form>
+    </div>
+
+
+
+{% endblock %}

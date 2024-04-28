@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+</head>
+<body>
+
+<!-- Ваш HTML код -->
+<div class="features">
+    <h1>Главная страница</h1>
+    <p>Добро пожаловать на новый школьный форум!</p>
+    <p>Данный сайт не является официальным сайтом школы</p>
+    <button class="btn btn-warning login-btn">Login</button>
+</div>
+
+<div class="blur-background"></div> <!-- Блок для размытия -->
+
+<div class="login-container">
+    <div class="login-form">
+        <h2>Вход</h2>
+        <input type="text" placeholder="Username"><br>
+        <input type="password" placeholder="Password"><br>
+        <button class="login-btn">Войти</button>
+        <span class="close-btn">&times;</span>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginBtn = document.querySelector('.login-btn');
+        const loginContainer = document.querySelector('.login-container');
+        const closeBtn = document.querySelector('.close-btn');
+        const blurBackground = document.querySelector('.blur-background');
+
+        loginBtn.addEventListener('click', function() {
+            loginContainer.classList.add('show'); // Добавляем класс для показа блока
+            blurBackground.style.display = 'block'; // Показываем блок с размытием
+        });
+
+        closeBtn.addEventListener('click', function() {
+            loginContainer.classList.remove('show'); // Убираем класс для показа блока
+            blurBackground.style.display = 'none'; // Скрываем блок с размытием
+        });
+    });
+</script>
+
+</body>
+</html>
